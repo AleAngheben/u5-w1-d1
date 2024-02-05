@@ -20,10 +20,11 @@ public class Menu {
 
     @Override
     public String toString() {
-        return "Menu{" +
-                "pizzas= " + pizzas +
-                ", drinks= " + drinks +
-                ", toppings= " + toppings +
+        return "MENU DELLA PIZZERIA \n {" +
+                "\n PIZZE = \n" +
+                " " + pizzas +
+                "\n BEVANDE= \n" + drinks +
+                "\n TOPPINGS= \n" + toppings +
                 '}';
     }
 }

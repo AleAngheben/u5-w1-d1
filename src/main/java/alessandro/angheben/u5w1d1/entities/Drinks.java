@@ -29,6 +29,6 @@ public class Drinks extends Elements {
                 ", calories=" + calories +
                 ", price=" + price +
                 ", quantity=" + quantity +
-                "} ";
+                "} \n";
     }
 }

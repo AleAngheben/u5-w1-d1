@@ -66,15 +66,15 @@ public class BeansConfiguration {
     //pizze
 
     Pizza getMargherita() {
-        return new Pizza("Margherita", 1104, 4.99, new ArrayList<>(Arrays.asList(getTomato(), getCheese())));
+        return new Pizza("Margherita", 1104, 4.99, new ArrayList<>(Arrays.asList(getTomato().getName(), getCheese().getName())));
     }
 
     Pizza getHawaiianPizza() {
-        return new Pizza("Hawaiian Pizza", 1024, 6.49, new ArrayList<>(Arrays.asList(getTomato(), getCheese(), getHam(), getPineapple())));
+        return new Pizza("Hawaiian Pizza", 1024, 6.49, new ArrayList<>(Arrays.asList(getTomato().getName(), getCheese().getName(), getHam().getName(), getPineapple().getName())));
     }
 
     Pizza getSalamiPizza() {
-        return new Pizza("Salami Pizza", 1160, 5.99, new ArrayList<>(Arrays.asList(getTomato(), getCheese(), getSalami())));
+        return new Pizza("Salami Pizza", 1160, 5.99, new ArrayList<>(Arrays.asList(getTomato().getName(), getCheese().getName(), getSalami().getName())));
     }
 
     @Bean

@@ -15,9 +15,9 @@ import java.util.List;
 
 public class Pizza extends Elements {
 
-    private List<Toppings> ingredients;
+    private List<String> ingredients;
 
-    public Pizza(String name, int calories, double price, List<Toppings> ingredients) {
+    public Pizza(String name, int calories, double price, List<String> ingredients) {
         super(name, calories, price);
         this.ingredients = ingredients;
     }
@@ -29,6 +29,6 @@ public class Pizza extends Elements {
                 ", ingredients=" + ingredients +
                 ", calories=" + calories +
                 ", price=" + price +
-                "} " + super.toString();
+                "} \n";
     }
 }
