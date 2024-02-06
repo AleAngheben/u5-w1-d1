@@ -21,12 +21,13 @@ public class U5W1D1Application {
         SpringApplication.run(U5W1D1Application.class, args);
         AnnotationConfigApplicationContext ctx = new AnnotationConfigApplicationContext(U5W1D1Application.class);
 
-        System.out.println(ctx.getBean("getMenu"));
+      //  System.out.println(ctx.getBean("getMenu"));
 
         //PRENDO I TAVOLI DAL BEANS CONFIG
         Table tableOne = (Table) ctx.getBean("getTableOne");
         Table tableTwo = (Table) ctx.getBean("getTableTwo");
         Table tableThree = (Table) ctx.getBean("getTableThree");
+
 
         //PRENDO ELEMENTI CHE MI SERVONO PER INSERIRLI NEI VARI ORDINI
 
@@ -49,14 +50,13 @@ public class U5W1D1Application {
         Pizza salamiPizza = (Pizza) ctx.getBean("getSalamiPizza");
 
 
-        //CREO GLI ORDINI
-
-        //PREZZO COPERTO
+        // PREZZO COPERTO
         Integer seatPrice = (Integer) ctx.getBean("getSeatPrice");
 
 
-        //PRIMO ORDINE
+        // CREO GLI ORDINI ++++++++++++++++++++++++++++++++++++++++++++++++++++
 
+        //PRIMO ORDINE
         List<Elements> firstTable = new ArrayList<>(Arrays.asList(salamiPizza, margherita, water, wine, water));
         Order orderOne = new Order(tableOne, firstTable, 1, OrderState.IN_PROGRESS, 2, seatPrice, "12:30");
 
@@ -69,6 +69,7 @@ public class U5W1D1Application {
         //SECONDO ORDINE
         List<Elements> secondTable = new ArrayList<>(Arrays.asList(hawaiianPizza, margherita, salamiPizza, water, water, lemonade, cheese));
         Order orderTwo = new Order(tableTwo, secondTable, 2, OrderState.READY, 3, seatPrice, "14:10");
+
         System.out.println("");
         System.out.println("SECONDO ORDINE !!!");
         System.out.println(orderTwo);
