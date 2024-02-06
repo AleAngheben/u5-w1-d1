@@ -1,17 +1,17 @@
 package alessandro.angheben.u5w1d1;
 
-import alessandro.angheben.u5w1d1.entities.Drinks;
-import alessandro.angheben.u5w1d1.entities.Menu;
-import alessandro.angheben.u5w1d1.entities.Pizza;
-import alessandro.angheben.u5w1d1.entities.Toppings;
+import alessandro.angheben.u5w1d1.entities.*;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.PropertySource;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
 @Configuration
+@PropertySource("application.properties")
 public class BeansConfiguration {
 
 
@@ -64,15 +64,17 @@ public class BeansConfiguration {
     }
 
     //pizze
-
+    @Bean
     Pizza getMargherita() {
         return new Pizza("Margherita", 1104, 4.99, new ArrayList<>(Arrays.asList(getTomato().getName(), getCheese().getName())));
     }
 
+    @Bean
     Pizza getHawaiianPizza() {
         return new Pizza("Hawaiian Pizza", 1024, 6.49, new ArrayList<>(Arrays.asList(getTomato().getName(), getCheese().getName(), getHam().getName(), getPineapple().getName())));
     }
 
+    @Bean
     Pizza getSalamiPizza() {
         return new Pizza("Salami Pizza", 1160, 5.99, new ArrayList<>(Arrays.asList(getTomato().getName(), getCheese().getName(), getSalami().getName())));
     }
@@ -85,4 +87,29 @@ public class BeansConfiguration {
 
         return new Menu(pizzaList, drinksList, toppingsList);
     }
+
+    //TABLES
+
+    @Bean
+    Table getTableOne() {
+        return new Table(1, 5, false);
+    }
+
+    @Bean
+    Table getTableTwo() {
+        return new Table(2, 6, false);
+    }
+
+    @Bean
+    Table getTableThree() {
+        return new Table(3, 10, false);
+    }
+
+//PREZZO DEL COPERTO
+
+    @Bean
+    Integer getSeatPrice(@Value("${order.seatPrice}") int seatPrice){
+        return seatPrice;
+    }
+
 }
